@@ -1,2 +1,2 @@
-export 'embedly_theme.dart';
-export 'embedly_theme_data.dart';
+export 'peekalink_theme.dart';
+export 'peekalink_theme_data.dart';
