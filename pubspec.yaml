@@ -1,8 +1,8 @@
-name: embedly_preview
-description: Displays Embedly previews natively inside Flutter
+name: flutter_peekalink
+description: Displays peekalink previews natively inside Flutter
 version: 0.0.2
 author:
-homepage:
+homepage: https://github.com/juntofoundation/flutter-peekalink
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
