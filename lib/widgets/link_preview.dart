@@ -1,18 +1,20 @@
-import 'package:embedly_preview/embedly_preview.dart';
+import 'package:flutter_peekalink/flutter_peekalink.dart';
 import 'package:flutter/material.dart';
-import 'package:embedly_preview/theme/theme.dart';
+import 'package:flutter_peekalink/theme/theme.dart';
 
-class EmbedlyLinkPreview extends StatelessWidget {
-  const EmbedlyLinkPreview({
+import '../flutter_peekalink.dart';
+
+class PeekalinkLinkPreview extends StatelessWidget {
+  const PeekalinkLinkPreview({
     Key key,
     @required this.data,
   }) : super(key: key);
 
-  final OEmbedResponse data;
+  final PeekalinkResponse data;
 
   @override
   Widget build(BuildContext context) {
-    final theme = EmbedlyThemeProvider.of(context);
+    final theme = PeekalinkThemeProvider.of(context);
 
     return Container(
       decoration: BoxDecoration(
@@ -25,11 +27,11 @@ class EmbedlyLinkPreview extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          if (data.thumbnailUrl != null)
+          if (data.image.url != null)
             ClipRRect(
               borderRadius: BorderRadius.circular(9),
               child: Image.network(
-                data.thumbnailUrl,
+                data.image.url,
                 fit: BoxFit.cover,
               ),
             ),

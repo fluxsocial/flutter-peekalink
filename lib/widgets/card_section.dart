@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EmbedlyCardSection extends StatelessWidget {
-  const EmbedlyCardSection({
+class PeekalinkCardSection extends StatelessWidget {
+  const PeekalinkCardSection({
     Key key,
     @required this.title,
     @required this.info,
