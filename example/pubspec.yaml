@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: 0.12.1
-  embedly_preview:
+  flutter_peekalink:
     path: ../
 
   cupertino_icons: ^0.1.3

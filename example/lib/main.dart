@@ -1,10 +1,9 @@
 import 'dart:convert';
 
-// import 'package:embedly_preview_example/api.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
-import 'package:embedly_preview/embedly_preview.dart';
+import 'package:flutter_peekalink/flutter_peekalink.dart';
 
 void main() {
   runApp(
@@ -21,7 +20,7 @@ class OEmbedHome extends StatefulWidget {
 
 class _OEmbedHomeState extends State<OEmbedHome> {
   TextEditingController controller;
-  OEmbedResponse previewData;
+  PeekalinkResponse previewData;
   @override
   void initState() {
     super.initState();
@@ -35,15 +34,12 @@ class _OEmbedHomeState extends State<OEmbedHome> {
   }
 
   Future<void> fetchUrl(final String url) async {
-    final Uri _url = Uri.http("api.embedly.com", "/1/oembed", {
-      "url": url,
+    final Uri _url = Uri.http("api.peekalink.io", "/", {
+      "link": url,
       // "key": API.api,
-      "meta_images": "true",
-      "maxwidth": "400",
-      "maxheight": "400",
     });
     final response = await http.get(_url.toString());
-    final _oEmbedResponse = OEmbedResponse.fromMap(
+    final _oEmbedResponse = PeekalinkResponse.fromMap(
       json.decode(
         utf8.decode(response.bodyBytes),
       ),
@@ -78,8 +74,10 @@ class _OEmbedHomeState extends State<OEmbedHome> {
               ),
             ),
             if (previewData != null)
-              OEmbedWidget(
+              PeekalinkWidget(
                 data: previewData,
+                preview: true,
+                expanded: false,
               )
           ],
         ),
